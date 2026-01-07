@@ -1,4 +1,7 @@
-import { signIn, signUp } from './actions'
+import { Input } from '@/components/ui/input'
+import { signIn } from './actions'
+import { Label } from '@/components/ui/label'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function LoginPage({
   searchParams,
@@ -7,27 +10,35 @@ export default function LoginPage({
 }) {
   return (
     <main style={{ maxWidth: 420, margin: '60px auto', padding: 16 }}>
-      <h1>Auth</h1>
 
       {searchParams?.checkEmail ? (
         <p>Check your email to confirm your account.</p>
       ) : null}
 
-      <h2>Sign in</h2>
-      <form action={signIn} style={{ display: 'grid', gap: 10 }}>
-        <input name="email" type="email" placeholder="Email" required />
-        <input name="password" type="password" placeholder="Password" required />
-        <button type="submit">Sign in</button>
-      </form>
-
+      <Card>
+        <CardHeader>
+          <CardTitle className='text-center'>
+            <h4>
+              Вход
+            </h4>
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <form action={signIn} className='flex flex-col gap-5'>
+            <div className='grid gap-2'>
+              <Label htmlFor="email">Имейл</Label>
+              <Input id='email' type="email" placeholder="Имейл" />
+            </div>
+            <div className='grid gap-2'>
+              <Label htmlFor="email">Парола</Label>
+              <Input id='password' type="password" placeholder="Парола" />
+            </div>
+            <button type="submit">Вход</button>
+          </form>
+        </CardContent>
+      </Card>
       <hr style={{ margin: '24px 0' }} />
 
-      <h2>Register</h2>
-      <form action={signUp} style={{ display: 'grid', gap: 10 }}>
-        <input name="email" type="email" placeholder="Email" required />
-        <input name="password" type="password" placeholder="Password" required />
-        <button type="submit">Create account</button>
-      </form>
     </main>
   )
 }
