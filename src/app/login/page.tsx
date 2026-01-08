@@ -2,6 +2,9 @@ import { Input } from '@/components/ui/input'
 import { signIn } from './actions'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import FacebookLoginButton from './_components/FacebookLoginButton'
+import GoogleLoginButton from './_components/GoogleLoginButton'
 
 export default function LoginPage({
   searchParams,
@@ -9,12 +12,7 @@ export default function LoginPage({
   searchParams?: { checkEmail?: string }
 }) {
   return (
-    <main style={{ maxWidth: 420, margin: '60px auto', padding: 16 }}>
-
-      {searchParams?.checkEmail ? (
-        <p>Check your email to confirm your account.</p>
-      ) : null}
-
+    <main className='container max-w-md centered mx-auto'>
       <Card>
         <CardHeader>
           <CardTitle className='text-center'>
@@ -33,12 +31,20 @@ export default function LoginPage({
               <Label htmlFor="email">Парола</Label>
               <Input id='password' type="password" placeholder="Парола" />
             </div>
-            <button type="submit">Вход</button>
+            <Button type="submit">Вход</Button>
           </form>
+          <div className='flex gap-2 items-center pt-7'>
+            <div className='flex-1 border-solid border-b-1'></div>
+            <p className='shrink-0'>Или</p>
+            <div className='flex-1 border-solid border-b-1'></div>
+          </div>
+          <div className='flex flex-col gap-3 pt-5'>
+          <FacebookLoginButton />
+          <GoogleLoginButton />
+
+          </div>
         </CardContent>
       </Card>
-      <hr style={{ margin: '24px 0' }} />
-
     </main>
   )
 }
