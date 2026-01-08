@@ -19,8 +19,7 @@ export async function signUp(formData: FormData) {
 
   if (error) throw new Error(error.message)
 
-  // If email confirmation is enabled, user must confirm via email
-  redirect('/login?checkEmail=1')
+  redirect(`/login?email=${email}`)
 }
 
 export async function signIn(formData: FormData) {
