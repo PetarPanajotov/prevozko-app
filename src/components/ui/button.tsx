@@ -41,10 +41,14 @@ function Button({
   variant = "default",
   size = "default",
   asChild = false,
+  loading = false,
+  disabled,
+  children,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
+    loading?: boolean
   }) {
   const Comp = asChild ? Slot : "button"
 
@@ -54,8 +58,22 @@ function Button({
       data-variant={variant}
       data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
+      disabled={disabled || loading}
       {...props}
-    />
+    >
+      {loading && <BouncingDotsLoader />}
+      {!loading && children}
+    </Comp>
+  )
+}
+
+function BouncingDotsLoader({ className = "" }) {
+  return (
+    <div className={`flex gap-1 items-end h-4 ${className}`}>
+      <div className="w-2 h-2 bg-current rounded-full animate-bounce [animation-delay:-0.3s] animation-duration-[0.6s]" />
+      <div className="w-2 h-2 bg-current rounded-full animate-bounce [animation-delay:-0.15s] animation-duration-[0.6s]" />
+      <div className="w-2 h-2 bg-current rounded-full animate-bounce animation-duration-[0.6s]" />
+    </div>
   )
 }
 
