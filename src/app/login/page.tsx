@@ -7,6 +7,7 @@ import FacebookLoginButton from './_components/FacebookLoginButton'
 import GoogleLoginButton from './_components/GoogleLoginButton'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { VerifyEmail } from './_components/VerifyEmail'
+import { InputPassword } from '@/components/ui/input-password'
 
 export default async function LoginPage(props: {
   searchParams: Promise<{ email?: string }>
@@ -36,7 +37,7 @@ const email = searchParams.email;
                     </div>
                     <div className='grid gap-2'>
                       <Label htmlFor="email">Парола</Label>
-                      <Input id='password' type="password" placeholder="Парола" />
+                      <InputPassword id='password' placeholder="Парола" />
                       <a href="/forgot-password" className='w-fit'>Забравена парола?</a>
                     </div>
                     <Button type="submit">Вход</Button>
@@ -59,7 +60,7 @@ const email = searchParams.email;
                     </div>
                     <div className='grid gap-2'>
                       <Label htmlFor="email">Парола</Label>
-                      <Input id='password' name="password" type="password" placeholder="Парола" />
+                      <InputPassword id='password' placeholder="Парола" />
                     </div>
                     <Button type="submit">Вход</Button>
                   </form>
