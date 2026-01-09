@@ -3,10 +3,10 @@ import { signIn, signUp } from './actions'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import FacebookLoginButton from './_components/FacebookLoginButton'
-import GoogleLoginButton from './_components/GoogleLoginButton'
+import FacebookLoginButton from './_components/facebook-login-button'
+import GoogleLoginButton from './_components/google-login-button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { VerifyEmail } from './_components/VerifyEmail'
+import { VerifyEmail } from './_components/verify-email'
 import { InputPassword } from '@/components/ui/input-password'
 
 export default async function LoginPage(props: {
