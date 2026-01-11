@@ -13,7 +13,7 @@ export function VerifyEmail({email}: VerifyEmailProps) {
                 </CardTitle>
             </CardHeader>
             <CardContent>
-                <p>Изпратихме линк за потвърждение на "<b>{email}</b>". Моля, проверете пощата си, за да завършите регистрацията.</p>
+                <p>Изпратихме линк за потвърждение на &quot;<b>{email}</b>&quot;. Моля, проверете пощата си, за да завършите регистрацията.</p>
             </CardContent>
             <CardFooter>
                     <Link className="w-full" href={'/login'}>

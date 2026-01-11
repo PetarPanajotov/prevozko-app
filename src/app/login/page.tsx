@@ -8,6 +8,8 @@ import GoogleLoginButton from './_components/google-login-button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { VerifyEmail } from './_components/verify-email'
 import { InputPassword } from '@/components/ui/input-password'
+import { Login } from './_components/login'
+import { Register } from './_components/register'
 
 export default async function LoginPage(props: {
   searchParams: Promise<{ email?: string }>
@@ -30,40 +32,10 @@ const email = searchParams.email;
               </CardHeader>
               <CardContent className=''>
                 <TabsContent value="login">
-                  <form action={signIn} className='flex flex-col gap-5'>
-                    <div className='grid gap-2'>
-                      <Label htmlFor="email">Имейл</Label>
-                      <Input id='email' type="email" placeholder="Имейл" />
-                    </div>
-                    <div className='grid gap-2'>
-                      <Label htmlFor="email">Парола</Label>
-                      <InputPassword id='password' placeholder="Парола" />
-                      <a href="/forgot-password" className='w-fit'>Забравена парола?</a>
-                    </div>
-                    <Button type="submit">Вход</Button>
-                  </form>
-                  <div className='flex gap-2 items-center pt-7'>
-                    <div className='flex-1 border-solid border-b-1'></div>
-                    <p className='shrink-0'>Или</p>
-                    <div className='flex-1 border-solid border-b-1'></div>
-                  </div>
-                  <div className='flex flex-col gap-3 pt-5'>
-                    <FacebookLoginButton />
-                    <GoogleLoginButton />
-                  </div>
+                  <Login />
                 </TabsContent>
                 <TabsContent value="register">
-                  <form action={signUp} className='flex flex-col gap-5'>
-                    <div className='grid gap-2'>
-                      <Label htmlFor="email">Имейл</Label>
-                      <Input id='email' name='email' type="email" placeholder="Имейл" />
-                    </div>
-                    <div className='grid gap-2'>
-                      <Label htmlFor="email">Парола</Label>
-                      <InputPassword id='password' placeholder="Парола" />
-                    </div>
-                    <Button type="submit">Вход</Button>
-                  </form>
+                  <Register />
                 </TabsContent>
               </CardContent>
             </Card>
