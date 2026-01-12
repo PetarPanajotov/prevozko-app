@@ -7,8 +7,12 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input"
 import { InputPassword } from "@/components/ui/input-password"
 import { Button } from "@/components/ui/button"
+import { useTranslations } from "next-intl"
 
 export function Register() {
+    const t = useTranslations("Register");
+    const tc = useTranslations("Common.fields");
+
     const form = useForm<registerValues>({
         resolver: zodResolver(registerSchema),
         mode: "onBlur",
@@ -27,9 +31,9 @@ export function Register() {
                     name="email"
                     render={({ field }) => (
                         <FormItem className="">
-                            <FormLabel htmlFor="email">Имейл</FormLabel>
+                            <FormLabel htmlFor="email">{tc("email.label")}</FormLabel>
                             <FormControl>
-                                <Input id="email" type="email" placeholder="Имейл" {...field} />
+                                <Input id="email" type="email" placeholder={tc("email.placeholder")} {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -41,16 +45,16 @@ export function Register() {
                     name="password"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel htmlFor="password">Парола</FormLabel>
+                            <FormLabel htmlFor="password">{tc("password.label")}</FormLabel>
                             <FormControl>
-                                <InputPassword id="password" placeholder="Парола" {...field} />
+                                <InputPassword id="password" placeholder={tc("password.placeholder")} {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
 
-                <Button type="submit">Регистрация</Button>
+                <Button type="submit">{t("submit")}</Button>
 
             </form>
         </Form>

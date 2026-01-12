@@ -10,8 +10,12 @@ import { loginSchema, LoginValues } from "../_schemas/login.schema";
 import { signIn } from "../actions";
 import FacebookLoginButton from "./facebook-login-button";
 import GoogleLoginButton from "./google-login-button";
+import { useTranslations } from "next-intl";
 
 export function Login() {
+  const t = useTranslations("Login");
+  const tc = useTranslations("Common.fields");
+
    const form = useForm<LoginValues>({
     resolver: zodResolver(loginSchema),
     mode: "onBlur",
@@ -31,9 +35,9 @@ export function Login() {
             name="email"
             render={({ field }) => (
               <FormItem className="">
-                <FormLabel htmlFor="email">Имейл</FormLabel>
+               <FormLabel htmlFor="email">{tc("email.label")}</FormLabel>
                 <FormControl>
-                  <Input id="email" type="email" placeholder="Имейл" {...field} />
+                  <Input id="email" type="email" placeholder={tc("email.placeholder")} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -45,33 +49,22 @@ export function Login() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel htmlFor="password">Парола</FormLabel>
+                <FormLabel htmlFor="password">{tc("password.label")}</FormLabel>
                 <FormControl>
-                  <InputPassword id="password" placeholder="Парола" {...field} />
+                  <InputPassword id="password" placeholder={tc("password.placeholder")} {...field} />
                 </FormControl>
                 <FormMessage />
                 <a href="/forgot-password" className="w-fit">
-                  Забравена парола?
+                  {t("forgot")}
                 </a>
               </FormItem>
             )}
           />
 
-          <Button type="submit">Вход</Button>
+          <Button type="submit">{t("submit")}</Button>
           
         </form>
       </Form>
-
-      <div className="flex gap-2 items-center pt-7">
-        <div className="flex-1 border-solid border-b" />
-        <p className="shrink-0">Или</p>
-        <div className="flex-1 border-solid border-b" />
-      </div>
-
-      <div className="flex flex-col gap-3 pt-5">
-        <FacebookLoginButton />
-        <GoogleLoginButton />
-      </div>
     </>
     )
 }

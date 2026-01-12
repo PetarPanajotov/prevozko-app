@@ -25,7 +25,7 @@ export default function GoogleLoginButton() {
       className="bg-white text-black w-100 border border-gray-300 hover:bg-gray-100"
     >
       <GoogleIcon />
-      Вход с Google
+        Google
     </Button>
   )
 }

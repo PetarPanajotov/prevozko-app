@@ -26,7 +26,7 @@ export default function FacebookLoginButton() {
       className="bg-[#1877F2] w-100 hover:bg-[#166fe5]"
     >
       <FacebookIcon />
-      Вход с Facebook
+      Facebook
     </Button>
   )
 }

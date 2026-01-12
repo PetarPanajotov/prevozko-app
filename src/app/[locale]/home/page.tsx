@@ -1,6 +1,6 @@
 import { supabaseServer } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
-import { signOut } from '@/app/login/actions'
+import { signOut } from '@/app/[locale]/login/actions'
 
 export default async function AppPage() {
   const supabase = await supabaseServer()

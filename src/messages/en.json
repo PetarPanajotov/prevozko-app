@@ -1,0 +1,53 @@
+{
+    "Common": {
+        "fields": {
+            "email": {
+                "label": "Email",
+                "placeholder": "Enter your email"
+            },
+            "password": {
+                "label": "Password",
+                "placeholder": "Enter your password"
+            }
+        }
+    },
+    "Auth": {
+        "divider": "Or sign in with",
+        "tabs": {
+            "login": "Sign in",
+            "register": "Sign up"
+        }
+    },
+    "Login": {
+        "title": "Login",
+        "submit": "Sign in",
+        "forgot": "Forgot password?"
+    },
+    "Register": {
+        "title": "Create account",
+        "submit": "Sign up",
+        "passwordHint": "At least 8 characters, one uppercase letter, one number, and one symbol",
+        "terms": "By clicking \"Sign up\", I agree to the Terms and Conditions and the Privacy Policy"
+    },
+    "Errors": {
+        "fields": {
+            "email": {
+                "required": "Email is required",
+                "invalid": "Please enter a valid email address",
+                "max128": "Email must be at most 128 characters"
+            },
+            "password": {
+                "required": "Password is required",
+                "min8": "Password must be at least 8 characters",
+                "uppercase": "Password must contain at least one uppercase letter",
+                "number": "Password must contain at least one number",
+                "symbol": "Password must contain at least one symbol",
+                "max128": "Password must be at most 128 characters"
+            }
+        },
+        "auth": {
+            "invalidCredentials": "Invalid email or password",
+            "tooManyAttempts": "Too many attempts. Please try again later."
+        }
+    }
+}
