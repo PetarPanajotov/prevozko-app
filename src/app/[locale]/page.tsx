@@ -1,4 +1,3 @@
-
 export default function Home() {
-  return (<div>Here</div>)
+  return <div>Here</div>;
 }

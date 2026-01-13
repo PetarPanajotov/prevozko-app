@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -44,7 +44,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-    /* Ensure the "active" states are recognized */
+  /* Ensure the "active" states are recognized */
   --color-primary: var(--primary);
   --color-background: var(--background);
 }
@@ -132,7 +132,9 @@
   body {
     margin: 0;
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
   }
   h1 {
     @apply text-4xl font-bold tracking-tight text-gray-900;
@@ -155,22 +157,22 @@
   }
 
   h6 {
-    @apply text-base font-medium uppercase tracking-wide text-gray-700;
+    @apply text-base font-medium tracking-wide text-gray-700 uppercase;
   }
 
-   p {
+  p {
     @apply text-base leading-relaxed text-gray-700;
   }
 
   a {
-    @apply text-blue-600 transition-colors cursor-pointer inline-block;
+    @apply inline-block cursor-pointer text-blue-600 transition-colors;
   }
 
   a:hover {
-    @apply text-blue-700 underline-offset-2 underline;
+    @apply text-blue-700 underline underline-offset-2;
   }
 
   a:focus-visible {
-    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+    @apply ring-2 ring-blue-500 ring-offset-2 outline-none;
   }
 }

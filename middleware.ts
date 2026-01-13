@@ -1,23 +1,21 @@
-import type { NextRequest } from "next/server"
-import createIntlMiddleware from "next-intl/middleware"
+import type { NextRequest } from 'next/server';
+import createIntlMiddleware from 'next-intl/middleware';
 
-import { routing } from "@/i18n/routing"
-import { updateSession } from "@/lib/supabase/proxy"
+import { routing } from '@/i18n/routing';
+import { updateSession } from '@/lib/supabase/proxy';
 
-const intlMiddleware = createIntlMiddleware(routing)
+const intlMiddleware = createIntlMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
-  const intlResponse = intlMiddleware(request)
+  const intlResponse = intlMiddleware(request);
 
-  if (intlResponse.headers.get("location")) {
-    return intlResponse
+  if (intlResponse.headers.get('location')) {
+    return intlResponse;
   }
 
-  return updateSession(request)
+  return updateSession(request);
 }
 
 export const config = {
-  matcher: [
-    "/((?!api|_next|.*\\..*).*)",
-  ],
-}
+  matcher: ['/((?!api|_next|.*\\..*).*)'],
+};

@@ -12,6 +12,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
   return {
     locale,
     // Adjust the path below to where your JSON files are stored
-    messages: (await import(`../messages/${locale}.json`)).default
+    messages: (await import(`../messages/${locale}.json`)).default,
   };
 });

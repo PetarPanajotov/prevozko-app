@@ -1,12 +1,12 @@
-import { supabaseServer } from '@/lib/supabase/server'
-import { redirect } from 'next/navigation'
-import { signOut } from '@/app/[locale]/login/actions'
+import { supabaseServer } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
+import { signOut } from '@/app/[locale]/login/actions';
 
 export default async function AppPage() {
-  const supabase = await supabaseServer()
-  const { data } = await supabase.auth.getUser()
+  const supabase = await supabaseServer();
+  const { data } = await supabase.auth.getUser();
 
-  if (!data.user) redirect('/login')
+  if (!data.user) redirect('/login');
 
   return (
     <main style={{ maxWidth: 720, margin: '60px auto', padding: 16 }}>
@@ -17,5 +17,5 @@ export default async function AppPage() {
         <button type="submit">Sign out</button>
       </form>
     </main>
-  )
+  );
 }
