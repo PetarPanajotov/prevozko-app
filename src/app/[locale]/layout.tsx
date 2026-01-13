@@ -1,3 +1,4 @@
+import { NavBar } from '@/components/navigation/navbar';
 import { routing } from '@/i18n/routing';
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
@@ -29,6 +30,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <NavBar></NavBar>
           {children}
         </NextIntlClientProvider>
       </body>
