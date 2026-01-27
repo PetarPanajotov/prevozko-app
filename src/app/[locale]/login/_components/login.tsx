@@ -15,8 +15,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
+import { useLogin } from '../_hooks/useLogin';
 import { loginSchema, LoginValues } from '../_schemas/login.schema';
-import { signIn } from '../actions';
 
 export function Login() {
   const t = useTranslations('Login');
@@ -28,14 +28,13 @@ export function Login() {
     defaultValues: { email: '', password: '' },
   });
 
-  const onSubmit = async (values: LoginValues) => {
-    await signIn(values);
-  };
+  const { handleLogin, isPending, error } = useLogin();
 
   return (
     <>
+      <p className="text-destructive pb-4 text-center">{error?.message}</p>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
+        <form onSubmit={form.handleSubmit(handleLogin)} className="flex flex-col gap-5">
           <FormField
             control={form.control}
             name="email"
@@ -71,7 +70,9 @@ export function Login() {
             )}
           />
 
-          <Button type="submit">{t('submit')}</Button>
+          <Button type="submit" loading={isPending}>
+            {t('submit')}
+          </Button>
         </form>
       </Form>
     </>
