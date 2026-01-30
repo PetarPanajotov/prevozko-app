@@ -10,7 +10,6 @@ export async function proxy(request: NextRequest) {
   const urlLocale = getLocaleFromUrl(pathname);
 
   if (urlLocale) {
-    console.log(urlLocale);
     return normalizeCookieFromUrl(urlLocale, cookieLocale);
   }
 
