@@ -26,7 +26,7 @@ export async function signIn({ email, password }: LoginValues, locale: 'en' | 'b
 export async function signOut() {
   const supabase = await supabaseServer();
   await supabase.auth.signOut();
-  redirect({ href: 'login', locale: 'en' });
+  redirect({ href: '/login', locale: 'en' });
 }
 
 async function performSupabaseRegister({ email, password }: registerValues) {
