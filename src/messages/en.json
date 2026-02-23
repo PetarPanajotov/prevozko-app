@@ -8,6 +8,32 @@
       "password": {
         "label": "Password",
         "placeholder": "Enter your password"
+      },
+      "service_name": {
+        "label": "What is your service name?",
+        "placeholder": "Express transport and relocation - Sofia region"
+      },
+      "vehicle": {
+        "label": "What type of vehicle do you have?"
+      },
+      "vehicle_characteristics": {
+        "label": "Vehicle characteristics"
+      },
+      "vehicle_load_capacity": {
+        "label": "Load capacity (kg)",
+        "placeholder": "1000"
+      },
+      "vehicle_length": {
+        "label": "Length (m)",
+        "placeholder": "4.5"
+      },
+      "vehicle_width": {
+        "label": "Width (m)",
+        "placeholder": "2.0"
+      },
+      "vehicle_height": {
+        "label": "Height (m)",
+        "placeholder": "2.0"
       }
     }
   },
@@ -43,6 +69,26 @@
         "number": "Password must contain at least one number",
         "symbol": "Password must contain at least one symbol",
         "max128": "Password must be at most 128 characters"
+      },
+      "service_name": {
+        "required": "Service name is required",
+        "min8": "Service name must be at least 8 characters",
+        "max128": "Service name must be at most 128 characters"
+      },
+      "vehicle": {
+        "required": "Vehicle is required"
+      },
+      "vehicle_load_capacity": {
+        "max100000": "Load capacity must be at most 100000 kg"
+      },
+      "vehicle_length": {
+        "max100000": "Length must be at most 100000 m"
+      },
+      "vehicle_width": {
+        "max100000": "Width must be at most 100000 m"
+      },
+      "vehicle_height": {
+        "max100000": "Height must be at most 100000 m"
       }
     },
     "auth": {
