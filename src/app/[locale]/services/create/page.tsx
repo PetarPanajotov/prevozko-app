@@ -3,7 +3,7 @@ import { GeneralInformation } from './_components/general-information';
 
 export default function CreateServicePage() {
   return (
-    <div className="flex h-full w-full items-center justify-center">
+    <div className="container m-auto py-10">
       <Stepper steps={['Create', 'Edit', 'Cancel']}>
         <StepperContent>
           <GeneralInformation />

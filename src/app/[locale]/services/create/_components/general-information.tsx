@@ -7,7 +7,9 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import ImageUploader from '@/components/ui/image-uploader';
 import { Input } from '@/components/ui/input';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRightLeft, Box, Car, Construction, Refrigerator, Truck, Zap } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -16,7 +18,6 @@ import {
   GeneralInformationSchema,
   GeneralInformationValues,
 } from '../_schemas/general-information.schema';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 export function GeneralInformation() {
   const VEHICLE_OPTIONS = [
@@ -32,9 +33,8 @@ export function GeneralInformation() {
   const tc = useTranslations('Common.fields');
 
   const onSubmit = async (values: any) => {
-    console.log('here');
+    console.log(values);
   };
-
   const form = useForm<GeneralInformationValues>({
     resolver: zodResolver(GeneralInformationSchema),
     mode: 'onBlur',
@@ -47,6 +47,7 @@ export function GeneralInformation() {
         width: 0,
         height: 0,
       },
+      images: [],
     },
   });
 
@@ -57,7 +58,7 @@ export function GeneralInformation() {
           control={form.control}
           name="service_name"
           render={({ field }) => (
-            <FormItem className="">
+            <FormItem className="space-y-3">
               <FormLabel htmlFor="service_name">{tc('service_name.label')}</FormLabel>
               <FormControl>
                 <Input
@@ -99,6 +100,110 @@ export function GeneralInformation() {
                     </FormItem>
                   ))}
                 </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormLabel>{tc('vehicle_characteristics.label')}</FormLabel>
+        <div className="flex gap-10">
+          <FormField
+            control={form.control}
+            name="vehicle_characteristics.load_capacity"
+            render={({ field }) => (
+              <FormItem className="space-y-3">
+                <FormLabel htmlFor="vehicle_characteristics.load_capacity">
+                  {tc('vehicle_load_capacity.label')}
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    id="vehicle_characteristics.load_capacity"
+                    type="number"
+                    placeholder={tc('vehicle_load_capacity.placeholder')}
+                    onChange={(e) => field.onChange(e.target.valueAsNumber)}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="vehicle_characteristics.length"
+            render={({ field }) => (
+              <FormItem className="space-y-3">
+                <FormLabel htmlFor="vehicle_characteristics.length">
+                  {tc('vehicle_length.label')}
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    id="vehicle_characteristics.length"
+                    type="number"
+                    placeholder={tc('vehicle_length.placeholder')}
+                    onChange={(e) => field.onChange(e.target.valueAsNumber)}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="vehicle_characteristics.width"
+            render={({ field }) => (
+              <FormItem className="space-y-3">
+                <FormLabel htmlFor="vehicle_characteristics.width">
+                  {tc('vehicle_width.label')}
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    id="vehicle_characteristics.width"
+                    type="number"
+                    placeholder={tc('vehicle_width.placeholder')}
+                    onChange={(e) => field.onChange(e.target.valueAsNumber)}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="vehicle_characteristics.height"
+            render={({ field }) => (
+              <FormItem className="space-y-3">
+                <FormLabel htmlFor="vehicle_characteristics.height">
+                  {tc('vehicle_height.label')}
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    id="vehicle_characteristics.height"
+                    type="number"
+                    placeholder={tc('vehicle_height.placeholder')}
+                    onChange={(e) => field.onChange(e.target.valueAsNumber)}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <FormField
+          control={form.control}
+          name="images"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel> {tc('vehicle_images.label')}</FormLabel>
+              <FormControl>
+                <ImageUploader value={field.value} onChange={field.onChange} />
               </FormControl>
               <FormMessage />
             </FormItem>
