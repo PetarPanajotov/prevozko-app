@@ -34,6 +34,9 @@
       "vehicle_height": {
         "label": "Височина (м)",
         "placeholder": "2.0"
+      },
+      "vehicle_images": {
+        "label": "Снимки на превозното средство"
       }
     }
   },
